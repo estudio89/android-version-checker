@@ -6,7 +6,7 @@ import android.os.Bundle;
 /**
  * Created by luccascorrea on 12/1/16.
  */
-public abstract class UpdatesExecutor {
+public abstract class AbstractUpdatesExecutor {
     private final int oldVersion;
     Context context;
     private Bundle updateInfo;
@@ -17,7 +17,7 @@ public abstract class UpdatesExecutor {
         void onUpdateFinished();
     }
 
-    public UpdatesExecutor(Context context, Bundle updateInfo, UpdateListener listener) {
+    public AbstractUpdatesExecutor(Context context, Bundle updateInfo, UpdateListener listener) {
         this.context = context;
         this.updateInfo = updateInfo;
         this.listener = listener;
