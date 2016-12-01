@@ -15,6 +15,7 @@ public abstract class AbstractUpdatesExecutor {
 
     public interface UpdateListener {
         void onUpdateFinished();
+        void onUpdateFailed();
     }
 
     public AbstractUpdatesExecutor(Context context, Bundle updateInfo, UpdateListener listener) {
@@ -24,6 +25,10 @@ public abstract class AbstractUpdatesExecutor {
 
         oldVersion = updateInfo.getInt(VersionChecker.PENDING_INFO_OLD_VERSION);
         newVersion = updateInfo.getInt(VersionChecker.PENDING_INFO_NEW_VERSION);
+    }
+
+    public UpdateListener getListener() {
+        return listener;
     }
 
     public abstract void runUpdate();
