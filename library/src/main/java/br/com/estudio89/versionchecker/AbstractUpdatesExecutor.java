@@ -15,6 +15,7 @@ public abstract class AbstractUpdatesExecutor {
 
     public interface UpdateListener {
         void onUpdateFinished();
+        void onUpdateFailed();
     }
 
     public AbstractUpdatesExecutor(Context context, Bundle updateInfo, UpdateListener listener) {
