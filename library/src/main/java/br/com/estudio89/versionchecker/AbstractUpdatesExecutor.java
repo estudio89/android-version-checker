@@ -27,5 +27,9 @@ public abstract class AbstractUpdatesExecutor {
         newVersion = updateInfo.getInt(VersionChecker.PENDING_INFO_NEW_VERSION);
     }
 
+    public UpdateListener getListener() {
+        return listener;
+    }
+
     public abstract void runUpdate();
 }
