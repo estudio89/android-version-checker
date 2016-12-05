@@ -87,7 +87,7 @@ public class VersionChecker {
             return null;
         }
         String oldVersion = info.split(";")[0];
-        String newVersion = info.split(";")[0];
+        String newVersion = info.split(";")[1];
 
         Bundle bundle = new Bundle();
         bundle.putInt(PENDING_INFO_OLD_VERSION, Integer.parseInt(oldVersion));
