@@ -2,6 +2,8 @@ package br.com.estudio89.versionchecker;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
 /**
  * Created by luccascorrea on 12/1/16.
@@ -29,6 +31,24 @@ public abstract class AbstractUpdatesExecutor {
 
     public UpdateListener getListener() {
         return listener;
+    }
+
+    public void onUpdateFinished() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                getListener().onUpdateFinished();
+            }
+        });
+    }
+
+    public void onUpdateFailed() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                getListener().onUpdateFailed();
+            }
+        });
     }
 
     public abstract void runUpdate();
